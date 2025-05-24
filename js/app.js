@@ -13,7 +13,7 @@ houseFilter.addEventListener("change",function(){
     } else {
         filteredCharacters = allCharacters.slice(0,sliceLimit).filter(character => character.house === selectedHouse);
     }
-    renderData(filteredCharacters)
+    renderData(filteredCharacters.slice(0,sliceLimit))
 })
 
 cardRemover.addEventListener("click",function(){
