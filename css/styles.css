@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'harryP';
-    src: url('/fonts/HarryP.woff') format('woff');
+    src: url('../fonts/HarryP.woff') format('woff');
 }
 
 * {
