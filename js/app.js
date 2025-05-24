@@ -1,5 +1,8 @@
 const cardContainer = document.getElementById("card-container");
 const houseFilter =document.getElementById("houseFilter")
+const cardAdder = document.getElementById("btn-add")
+const cardRemover = document.getElementById("btn-less")
+let sliceLimit = 16;
 let allCharacters=[];
 houseFilter.addEventListener("change",function(){
     const selectedHouse = this.value;
@@ -13,6 +16,20 @@ houseFilter.addEventListener("change",function(){
     renderData(filteredCharacters)
 })
 
+cardRemover.addEventListener("click",function(){
+  sliceLimit -= 16;
+  if(sliceLimit <=0){
+    sliceLimit = 1;
+    alert("Can't display less than one card")
+  }
+  renderData(allCharacters.slice(0,sliceLimit))
+})
+
+cardAdder.addEventListener("click",function(){
+  sliceLimit +=16;
+  renderData(allCharacters.slice(0,sliceLimit));
+})
+
 function fetchData() {
 
   fetch("https://hp-api.onrender.com/api/characters")
@@ -24,8 +41,8 @@ function fetchData() {
     })
     .then((data) => {
       console.log("Checking what is inside products", data);
-      allCharacters= data.slice(0,16);
-      renderData(allCharacters);
+      allCharacters= data;
+      renderData(allCharacters.slice(0,16));
     })
     .catch((error) => {
       console.log("error catched here", error);
