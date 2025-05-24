@@ -17,6 +17,7 @@ houseFilter.addEventListener("change",function(){
 })
 
 cardRemover.addEventListener("click",function(){
+  houseFilter.value = "All";
   sliceLimit -= 16;
   if(sliceLimit <=0){
     sliceLimit = 1;
@@ -26,6 +27,7 @@ cardRemover.addEventListener("click",function(){
 })
 
 cardAdder.addEventListener("click",function(){
+  houseFilter.value = "All";
   sliceLimit +=16;
   renderData(allCharacters.slice(0,sliceLimit));
 })
