@@ -9,11 +9,11 @@ houseFilter.addEventListener("change",function(){
     let filteredCharacters;
     
     if(selectedHouse ==="All"){
-        filteredCharacters = allCharacters
+        filteredCharacters = allCharacters.slice(0,sliceLimit)
     } else {
-        filteredCharacters = allCharacters.filter(character => character.house === selectedHouse);
+        filteredCharacters = allCharacters.slice(0,sliceLimit).filter(character => character.house === selectedHouse);
     }
-    renderData(filteredCharacters)
+    renderData(filteredCharacters.slice(0,sliceLimit))
 })
 
 cardRemover.addEventListener("click",function(){
