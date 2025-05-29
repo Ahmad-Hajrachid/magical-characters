@@ -4,6 +4,8 @@ const cardAdder = document.getElementById("btn-add")
 const cardRemover = document.getElementById("btn-less")
 let sliceLimit = 16;
 let allCharacters=[];
+
+
 houseFilter.addEventListener("change",function(){
     const selectedHouse = this.value;
     let filteredCharacters;
@@ -21,7 +23,6 @@ cardRemover.addEventListener("click",function(){
   sliceLimit -= 16;
   if(sliceLimit <=0){
     sliceLimit = 1;
-    alert("Can't display less than one card")
   }
   renderData(allCharacters.slice(0,sliceLimit))
 })
